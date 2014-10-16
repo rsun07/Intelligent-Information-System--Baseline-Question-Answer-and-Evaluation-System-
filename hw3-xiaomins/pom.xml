@@ -111,7 +111,7 @@
 		</plugins>
 	</build>
 	<scm>
-		<connection>scm:git:git@github.com:rsun07/hw0-xiaomins.git</connection>
-		<developerConnection>scm:git:git@github.com:rsun07/hw0-xiaomins.git</developerConnection>
+		<connection>scm:git:git@github.com:rsun07/hw3-xiaomins.git</connection>
+		<developerConnection>scm:git:git@github.com:rsun07/hw3-xiaomins.git</developerConnection>
 	</scm>
 </project>
