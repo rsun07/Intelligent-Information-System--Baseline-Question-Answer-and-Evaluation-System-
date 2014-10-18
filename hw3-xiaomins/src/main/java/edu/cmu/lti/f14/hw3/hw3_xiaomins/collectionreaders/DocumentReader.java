@@ -8,13 +8,16 @@ import org.apache.uima.jcas.JCas;
 
 import edu.cmu.lti.f14.hw3.hw3_xiaomins.typesystems.Document;
 
-
-public class DocumentReader 
-extends JCasAnnotator_ImplBase  {
+/**
+ * The DocumentReader parses lines from the input document file and saves the 
+ * result of the parse (query id, relevance assessment, and document text) in a type Document
+ * Then through CAS, pass the infomration to the Annotator
+ *
+ */
+public class DocumentReader extends JCasAnnotator_ImplBase  {
 	
 	@Override
-	public void process(JCas jcas) 
-			throws AnalysisEngineProcessException {
+	public void process(JCas jcas) throws AnalysisEngineProcessException {
 		
 		// reading sentence from the CAS 
 		String sLine = jcas.getDocumentText();
@@ -43,7 +46,12 @@ extends JCasAnnotator_ImplBase  {
 		jcas.addFsToIndexes(doc);
 	}
 
-
+	/**
+	 * The parseDateLine function can read a input line
+	 * and parse it into three parts, that's the question Id, the relevance value and the text 
+	 * @param line
+	 * @return
+	 */
 	public static ArrayList<String> parseDataLine(String line) {
 		ArrayList<String> docInfo;
 

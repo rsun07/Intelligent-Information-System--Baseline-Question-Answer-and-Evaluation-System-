@@ -1,17 +1,28 @@
 package edu.cmu.lti.f14.hw3.hw3_xiaomins.annotators;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.FSIterator;
 import org.apache.uima.jcas.JCas;
-import org.apache.uima.jcas.cas.IntegerArray;
-import org.apache.uima.jcas.cas.StringArray;
+import org.apache.uima.jcas.cas.FSList;
 import org.apache.uima.jcas.tcas.Annotation;
 
 import edu.cmu.lti.f14.hw3.hw3_xiaomins.typesystems.Document;
+import edu.cmu.lti.f14.hw3.hw3_xiaomins.typesystems.Token;
+import edu.cmu.lti.f14.hw3.hw3_xiaomins.utils.Utils;
 
+/**
+ * 
+ * The DocumentVectorAnnotator can read the document from the Reader
+ * Creates sparse term vectors for each word
+ * Pass these vectors to the Evaluator
+ * @author Ryan Sun
+ *
+ */
 public class DocumentVectorAnnotator extends JCasAnnotator_ImplBase {
 
 	@Override
@@ -21,9 +32,8 @@ public class DocumentVectorAnnotator extends JCasAnnotator_ImplBase {
 		if (iter.isValid()) {
 			iter.moveToNext();
 			Document doc = (Document) iter.get();
-			createTermFreqVector(jcas, doc);
+			createfrequencyVector(jcas, doc);
 		}
-
 	}
 
 	/**
@@ -42,19 +52,36 @@ public class DocumentVectorAnnotator extends JCasAnnotator_ImplBase {
 	}
 
 	/**
-	 * 
+	 * This function will read the tokens from the input document and calculate the term frequency
+	 * Then write all the information, such as token, term frequency and text into the Token type
+	 * Using the JCas pass it into the Evaluator
 	 * @param jcas
 	 * @param doc
 	 */
 
-	private void createTermFreqVector(JCas jcas, Document doc) {
+	private void createfrequencyVector(JCas jcas, Document doc) {
 
 		String docText = doc.getText();
+		 
+		//parse every token using the tokenize0() function
+		List<String> tokens = tokenize0(docText);
+		HashMap<String, Integer> frequency = new HashMap<String, Integer>();
+		//read the tokens into the HashMap and calculate the term frequency
+		for(String token : tokens){
+		  int freq = frequency.containsKey(token) ? frequency.get(token) + 1 : 1;
+		  frequency.put(token, freq);
+		}
 		
-		//TO DO: construct a vector of tokens and update the tokenList in CAS
-    //TO DO: use tokenize0 from above 
-		
-
+		ArrayList<Token> tokenList = new ArrayList<Token>();
+		for(String it : tokens){
+		  Token token = new Token(jcas);
+      token.setText(it);
+      token.setFrequency(frequency.get(it));
+      tokenList.add(token);
+    }
+    //add tokenList to cas and pass it to Evaluator
+    FSList fslist = Utils.fromCollectionToFSList(jcas, tokenList);
+    doc.setTokenList(fslist);
 	}
 
 }

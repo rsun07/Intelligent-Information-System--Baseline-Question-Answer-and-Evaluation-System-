@@ -16,9 +16,7 @@ import org.apache.uima.jcas.tcas.Annotation;
 import org.uimafit.util.JCasUtil;
 
 public class Utils {
-	public static <T extends TOP> ArrayList<T> fromFSListToCollection(FSList list,
-			Class<T> classType) {
-
+	public static <T extends TOP> ArrayList<T> fromFSListToCollection(FSList list, Class<T> classType) {
 	
 		Collection<T> myCollection = JCasUtil.select(list, classType);
 		/*
@@ -50,8 +48,7 @@ public class Utils {
 	 		return list;
 	 	}
 	
-	public static <T extends Annotation> FSList fromCollectionToFSList(JCas aJCas,
-			Collection<T> aCollection) {
+	public static <T extends Annotation> FSList fromCollectionToFSList(JCas aJCas, Collection<T> aCollection) {
 		if (aCollection.size() == 0) {
 			return new EmptyFSList(aJCas);
 		}
