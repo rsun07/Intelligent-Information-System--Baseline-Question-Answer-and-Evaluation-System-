@@ -1,0 +1,21 @@
+coisne=0.2791	rank=2	qid=1	rel=1	In A.D. 79, long-dormant Mount Vesuvius erupted, burying in volcanic ash the Roman city of Pompeii; an  estimated 20,000 people died. 
+coisne=0.2858	rank=2	qid=2	rel=1	When Michael Jordan--one of the greatest basketball player of all time--made what was expected to be his last trip to play in Atlanta last  March, an NBA record 62,046 fans turned out to see him and the  Bulls. 
+coisne=0.2357	rank=3	qid=3	rel=1	Alaska was purchased from Russia in year 1867. 
+coisne=0.2315	rank=2	qid=4	rel=1	On March 2, 1962, Wilt Chamberlain scored a record 100 points in a   game against the New York Knicks. 
+coisne=0.0000	rank=3	qid=5	rel=1	People of China have mixed feelings about  River, which they often call "sorrow of China" 
+coisne=0.5547	rank=2	qid=6	rel=1	Roger Bannister was the first to break the four-minute mile barrier. 
+coisne=0.0891	rank=3	qid=7	rel=1	And that's not even to mention the breathtaking beauty of Alaska that became, in 1959, our 49th state. 
+coisne=0.1833	rank=2	qid=8	rel=1	Fighting for Holyfield's WBA heavyweight title on June 28, 1997, Tyson inexplicably bit his opponent's right ear. 
+coisne=0.5804	rank=2	qid=9	rel=1	Luna 2 was the first spacecraft to reach the surface of the Moon. 
+coisne=0.5000	rank=1	qid=10	rel=1	Menchu won the Nobel peace prize in 1992. 
+coisne=0.1768	rank=4	qid=11	rel=1	Devils Tower can be found in Crook County 
+coisne=0.3162	rank=3	qid=12	rel=1	Named the "Mendocino Tree," the 600- to 800-year-old redwood   stands 367 1/2 feet tall. 
+coisne=0.1195	rank=3	qid=13	rel=1	Oregon's Crater Lake tops it at 1,932 feet at its greatest depth. 
+coisne=0.4216	rank=2	qid=14	rel=1	Lionel Richiewas was lead singer and songwriter for Commodores. 
+coisne=0.0788	rank=3	qid=15	rel=1	A new look at NASA satellite data revealed that Earth set a new record for coldest temperature recorded in East Antarctica. 
+coisne=0.2828	rank=3	qid=16	rel=1	Bob Marley died in 1981 from cancer at age 36. 
+coisne=0.1508	rank=3	qid=17	rel=1	Corn futures found support from forecasts for above-normal   temperatures in major growing areas, including Iowa, which often is  the nation's largest producer. 
+coisne=0.2265	rank=2	qid=18	rel=1	From a single hamburger stand in San Bernardino, Calif., in 1948, the systematized approach that the McDonald brothers developed to offer customers reasonably priced food at a rapid pace formed the cornerstone of the fast-food business. 
+coisne=0.1268	rank=3	qid=19	rel=1	On May 6, 1937, the hydrogen-filled German dirigible Hindenburg   burned and crashed in Lakehurst, N.J., killing 35 of the 97 people  on board and a Navy crewman on the ground. 
+coisne=0.3078	rank=2	qid=20	rel=1	They call it the Keystone State, and in this unpredictable election year, Pennsylvania is living up to its name. 
+MRR=0.4375

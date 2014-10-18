@@ -59,5 +59,9 @@ public class Doc implements Comparable<Doc> {
   public double getCosSim(){
     return cosSim;
   }
+  
+  public String toString(){
+    return String.format("rel=%d\tcosSim=%.4f\ttext=%s\t%n", relevance, cosSim, text);
+  }
 }
 

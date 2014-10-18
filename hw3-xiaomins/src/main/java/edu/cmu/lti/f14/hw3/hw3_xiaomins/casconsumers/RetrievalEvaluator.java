@@ -58,7 +58,7 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 	}
 	
 	    private void initBufWriter(){
-	      String output = ((String) getConfigParameterValue("OutputDoc")).trim();
+	      String output = ((String) getConfigParameterValue("OutputFile")).trim();
 	      try {
 	        bufWriter = new BufferedWriter(new FileWriter(output, false));
 	      } catch (Exception e) {
@@ -104,10 +104,12 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 	    int id = doc.getQueryID();
 	    int rel = doc.getRelevanceValue();
 	    String text = doc.getText();
+	    //System.out.println(id + "  " + rel + "  " + text);
 	    
 	    vector = new ArrayList<Vector>();
 	    for(Token token : tokenList){ 
         Vector curVector = new Vector(token.getText(), token.getFrequency());
+        //System.out.println(token.getText() + "  " + token.getFrequency() + "  " + text);
 	      vector.add(curVector);
 	    }
 	    
@@ -123,6 +125,7 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
         }
         tmpDoc.add(curDoc);
         docList.put(id, tmpDoc);
+        //System.out.println(curDoc);
        }
     }
 
@@ -156,6 +159,7 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 		// TODO :: compute the metric:: mean reciprocal rank
 		double metric_mrr = compute_mrr(mrrList);
     String output = String.format("MRR=%.4f", metric_mrr);
+    //System.out.println(output);
     bufWriter.write(output);
 		System.out.println(" (MRR) Mean Reciprocal Rank ::" + metric_mrr);
 	}
@@ -167,9 +171,15 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 	 */
 	private double computeCosineSimilarity(ArrayList<Vector> queryVector, ArrayList<Vector> docVector) {
 		double cosine_similarity = 0.0;
-
+		
+		/*
+		//only for test use
+		for(Vector v : queryVector){
+		  System.out.println(v.getToken() + "   " + v.getFreq());
+		}
+		*/
 		// TODO :: compute cosine similarity between two sentences
-		int product = 0;
+		double product = 0.0;
 		double queryMol = 0.0;
 		HashMap<String, Integer> docs = new HashMap<String, Integer>();
 		// this function will transform ArrayList<Vector> into HashMap<String, Integer> 
@@ -179,17 +189,20 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 		//calculate the product of queryVector and docVecotor
 		for(Vector qv : queryVector){
 		  String token = qv.getToken();
-		  int queryFreq = qv.getFreq();
+		  double queryFreq = qv.getFreq();
+		  //System.out.println("q"+ "  "+ token + "  " + queryFreq);
 		  if(docs.containsKey(token)){
-		    int docFreq = docs.get(token);
+		    double docFreq = docs.get(token);
+		    //System.out.println("d"+ "  " + token + "  " + queryFreq + "  " + docFreq);
 		    product += queryFreq*docFreq;
 		  }
 		  //calculate the mol of query
 		  queryMol += queryFreq*queryFreq;
 		}
 		queryMol = Math.sqrt(queryMol);
-
+		//System.out.println(product + "  " + docMol+ "  " + queryMol );
 		cosine_similarity = (double) product/(docMol*queryMol);
+		//System.out.println(cosine_similarity);
 		return cosine_similarity;
 	}
 	
@@ -232,7 +245,8 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 	  String text = answerDoc.getText();
 	  double cosSim = answerDoc.getCosSim();
 	  String output = 
-	          String.format("coisne=%.4f\trank=%d\tqid=%d\trel=%d\t%s%n", cosSim, rank, id, rel, text);
+	          String.format("cosine=%.4f\trank=%d\tqid=%d\trel=%d\t%s%n", cosSim, rank, id, rel, text);
+    //System.out.println(output);
 	  try {
       bufWriter.write(output);
     } catch (IOException e) {
@@ -246,12 +260,20 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 	 */
 	private double compute_mrr(ArrayList<Integer>  mrrList) {
 		double metric_mrr=0.0;
-
+		int count = 0;
 		// TODO :: compute Mean Reciprocal Rank (MRR) of the text collection
 		for(int rank : mrrList){
 		  metric_mrr += (double)1 / rank;
+		  count++;
 		}
-		return metric_mrr;
+		return metric_mrr/count;
 	}
 
+  public void destroy() {
+    try {
+      bufWriter.close();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
 }

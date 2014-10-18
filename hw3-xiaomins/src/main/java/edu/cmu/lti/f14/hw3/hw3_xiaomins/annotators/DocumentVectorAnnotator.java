@@ -3,6 +3,7 @@ package edu.cmu.lti.f14.hw3.hw3_xiaomins.annotators;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map.Entry;
 
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
@@ -62,21 +63,28 @@ public class DocumentVectorAnnotator extends JCasAnnotator_ImplBase {
 	private void createfrequencyVector(JCas jcas, Document doc) {
 
 		String docText = doc.getText();
-		 
+		//replace punctunates to avoid wrong parse
+    docText = docText.replace(",", "");
+    docText = docText.replace(".", "");
+    docText = docText.replace("!", "");
+    docText = docText.replace("?", "");
+    docText = docText.replace(";", "");
 		//parse every token using the tokenize0() function
 		List<String> tokens = tokenize0(docText);
 		HashMap<String, Integer> frequency = new HashMap<String, Integer>();
 		//read the tokens into the HashMap and calculate the term frequency
 		for(String token : tokens){
-		  int freq = frequency.containsKey(token) ? frequency.get(token) + 1 : 1;
+		  int freq = 1;
+		  if(frequency.containsKey(token))
+		    freq += frequency.get(token);
 		  frequency.put(token, freq);
 		}
 		
 		ArrayList<Token> tokenList = new ArrayList<Token>();
-		for(String it : tokens){
+		for(Entry<String, Integer> entry : frequency.entrySet()){
 		  Token token = new Token(jcas);
-      token.setText(it);
-      token.setFrequency(frequency.get(it));
+      token.setText(entry.getKey());
+      token.setFrequency(entry.getValue());
       tokenList.add(token);
     }
     //add tokenList to cas and pass it to Evaluator
