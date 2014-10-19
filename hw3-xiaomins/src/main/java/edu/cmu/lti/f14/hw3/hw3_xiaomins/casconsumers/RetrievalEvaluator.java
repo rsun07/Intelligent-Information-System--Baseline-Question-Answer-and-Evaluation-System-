@@ -27,9 +27,9 @@ import edu.cmu.lti.f14.hw3.hw3_xiaomins.utils.Utils;
 import edu.cmu.lti.f14.hw3.hw3_xiaomins.utils.Vector;
 
 /**
- * The RetrievalEvaluator() function will firstly store all the information from the DocumentVectorAnnotator into proper data structure.
+ * The RetrievalEvaluator will firstly store all the information from the DocumentVectorAnnotator into proper data structure.
  * Then it will compute the cosine similarity between query and related documents, 
- * and find the rank of the relevant document to calculate the MRR metric.
+ * and compute the rank of the relevant document to calculate the MRR metric.
  * Finally, it will write the output into the report.txt in required format.
  * 
  * 

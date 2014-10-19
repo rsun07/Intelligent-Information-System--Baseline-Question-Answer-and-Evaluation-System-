@@ -14,6 +14,7 @@ import org.apache.uima.jcas.tcas.Annotation;
 
 import edu.cmu.lti.f14.hw3.hw3_xiaomins.typesystems.Document;
 import edu.cmu.lti.f14.hw3.hw3_xiaomins.typesystems.Token;
+import edu.cmu.lti.f14.hw3.hw3_xiaomins.utils.StanfordLemmatizer;
 import edu.cmu.lti.f14.hw3.hw3_xiaomins.utils.Utils;
 
 /**
@@ -72,12 +73,13 @@ public class DocumentVectorAnnotator extends JCasAnnotator_ImplBase {
 
     String docText = doc.getText();
     // replace punctunates to avoid wrong parse
-    // docText = docText.replace(",", "");
-    // docText = docText.replace(".", "");
-    // docText = docText.replace("!", "");
-    // docText = docText.replace("?", "");
-    // docText = docText.replace(";", "");
+//     docText = docText.replace(",", "");
+//     docText = docText.replace(".", "");
+//     docText = docText.replace("!", "");
+//     docText = docText.replace("?", "");
+//     docText = docText.replace(";", "");
     // parse every token using the tokenize0() function
+//     docText = StanfordLemmatizer.stemText(docText);
     List<String> tokens = tokenize0(docText);
     HashMap<String, Integer> frequency = new HashMap<String, Integer>();
     // read the tokens into the HashMap and calculate the term frequency
