@@ -64,11 +64,11 @@ public class DocumentVectorAnnotator extends JCasAnnotator_ImplBase {
 
 		String docText = doc.getText();
 		//replace punctunates to avoid wrong parse
-    docText = docText.replace(",", "");
-    docText = docText.replace(".", "");
-    docText = docText.replace("!", "");
-    docText = docText.replace("?", "");
-    docText = docText.replace(";", "");
+//    docText = docText.replace(",", "");
+//    docText = docText.replace(".", "");
+//    docText = docText.replace("!", "");
+//    docText = docText.replace("?", "");
+//    docText = docText.replace(";", "");
 		//parse every token using the tokenize0() function
 		List<String> tokens = tokenize0(docText);
 		HashMap<String, Integer> frequency = new HashMap<String, Integer>();
