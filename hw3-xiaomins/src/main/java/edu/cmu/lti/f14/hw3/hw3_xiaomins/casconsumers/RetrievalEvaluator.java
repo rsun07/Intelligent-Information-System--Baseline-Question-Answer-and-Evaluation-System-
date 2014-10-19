@@ -26,6 +26,16 @@ import edu.cmu.lti.f14.hw3.hw3_xiaomins.utils.Doc;
 import edu.cmu.lti.f14.hw3.hw3_xiaomins.utils.Utils;
 import edu.cmu.lti.f14.hw3.hw3_xiaomins.utils.Vector;
 
+/**
+ * The RetrievalEvaluator() function will firstly store all the information from the DocumentVectorAnnotator into proper data structure.
+ * Then it will compute the cosine similarity between query and related documents, 
+ * and find the rank of the relevant document to calculate the MRR metric.
+ * Finally, it will write the output into the report.txt in required format.
+ * 
+ * 
+ * @author Ryan Sun
+ *
+ */
 
 public class RetrievalEvaluator extends CasConsumer_ImplBase {
 
@@ -47,7 +57,10 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 	// to write the document/result
 	private BufferedWriter bufWriter;
 
-		
+	/**
+	 * initialize() function will initialize the data structure to store the data 
+	 * and initial a BufferedReader that will write the output later.
+	 */
 	public void initialize() throws ResourceInitializationException {
 	  //qIdList = new ArrayList<Integer>();
 	  //queryVector = new HashMap<String, Integer>();
@@ -57,6 +70,9 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 	  initBufWriter();
 	}
 	
+	  /**
+	   * this function will initialize the BufferedReader for write the output
+	   */
 	    private void initBufWriter(){
 	      String output = ((String) getConfigParameterValue("OutputFile")).trim();
 	      try {
@@ -67,7 +83,9 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 	    }
 
 	/**
-	 * TODO :: 1. construct the global word dictionary 
+	 * The processCas() function will read the information from the DocumentVectorAnnotator,then
+	 * 
+	 * 1. construct the global word dictionary 
 	 * 2. keep the word frequency for each sentence
 	 */
 	@Override
@@ -85,10 +103,9 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 		if (it.hasNext()) {
 			Document doc = (Document) it.next();
 
-			//Make sure that your previous annotators have populated this in CAS
 			FSList fsTokenList = doc.getTokenList();
 			ArrayList<Token> tokenList = Utils.fromFSListToCollection(fsTokenList, Token.class);			
-			// get the informaion from doc and tokenList, then distinguish query from documents and store necessary information
+			// get the information from doc and tokenList, then distinguish query from documents and store necessary information
 			processInfo(doc, tokenList);
 		}
 	}
@@ -96,16 +113,18 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 	/**
 	 * This function will sparse information from document and tokenList
 	 * 1. distinguish queries from documents
-	 * 2. store queries and documents in proper data structure
+	 * 2. store queries and documents in proper data structure for later recall
 	 * @param doc
 	 * @param tokenList
 	 */
 	  private void processInfo(Document doc, ArrayList<Token> tokenList){
+	    //get information from doc
 	    int id = doc.getQueryID();
 	    int rel = doc.getRelevanceValue();
 	    String text = doc.getText();
 	    //System.out.println(id + "  " + rel + "  " + text);
 	    
+	    //build the vector for both query and document
 	    vector = new ArrayList<Vector>();
 	    for(Token token : tokenList){ 
         Vector curVector = new Vector(token.getText(), token.getFrequency());
@@ -113,6 +132,7 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 	      vector.add(curVector);
 	    }
 	    
+	    // distinguish queries from all the input documents
 	    if(rel == 99){
 	      queryList.put(id, vector);
       } else {
@@ -130,8 +150,10 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
     }
 
 	/**
-	 * TODO 1. Compute Cosine Similarity and rank the retrieved sentences 2.
-	 * Compute the MRR metric
+	 * This function has three main functions
+	 * 1. Compute Cosine Similarity and rank the retrieved sentences 
+	 * 2.Compute the MRR metric
+	 * 3. Write the output data into report.txt
 	 */
 	@Override
 	public void collectionProcessComplete(ProcessTrace arg0)
@@ -140,7 +162,7 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 		super.collectionProcessComplete(arg0);
 
 		ArrayList<Integer>  mrrList = new ArrayList<Integer>();
-		// TODO :: compute the cosine similarity measure
+		// compute the cosine similarity measure
 		for (Entry<Integer, ArrayList<Vector>> entry : queryList.entrySet()){
 		  int id = entry.getKey();
 		  ArrayList<Vector> queryVector = entry.getValue();
@@ -150,18 +172,18 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 		    curDoc.setCosSim(cosSim);
 		  }
       Collections.sort(docs);
-      // TODO :: compute the rank of retrieved sentences
+      // compute the rank of retrieved sentences
       int rank = computeRank(docs);
       mrrList.add(rank);
       writeOutput(id, rank, docs);
 		}
 			
-		// TODO :: compute the metric:: mean reciprocal rank
+		// compute the metric:: mean reciprocal rank
 		double metric_mrr = compute_mrr(mrrList);
     String output = String.format("MRR=%.4f", metric_mrr);
     //System.out.println(output);
     bufWriter.write(output);
-		System.out.println(" (MRR) Mean Reciprocal Rank ::" + metric_mrr);
+		System.out.println(" (MRR) Mean Reciprocal Rank ::" + output);
 	}
 
 	/**
@@ -178,7 +200,7 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 		  System.out.println(v.getToken() + "   " + v.getFreq());
 		}
 		*/
-		// TODO :: compute cosine similarity between two sentences
+		// compute cosine similarity between two sentences
 		double product = 0.0;
 		double queryMol = 0.0;
 		HashMap<String, Integer> docs = new HashMap<String, Integer>();
@@ -223,7 +245,7 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 	      }
 	  
 	/**
-	 * calculate the rank of the first relevant answer
+	 * Calculate the rank of the first relevant answer
 	 * @return rank
 	 */
 	private int computeRank(ArrayList<Doc> docs){
@@ -255,20 +277,23 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 	}
 
 	/**
-	 * 
+	 * This function will compute the Mean Reciprocal Rank (MRR) of each query
 	 * @return mrr
 	 */
 	private double compute_mrr(ArrayList<Integer>  mrrList) {
 		double metric_mrr=0.0;
 		int count = 0;
-		// TODO :: compute Mean Reciprocal Rank (MRR) of the text collection
+		// compute Mean Reciprocal Rank (MRR) of the text collection
 		for(int rank : mrrList){
 		  metric_mrr += (double)1 / rank;
 		  count++;
 		}
 		return metric_mrr/count;
 	}
-
+	
+	/**
+	 * The function will be run at the end of the pipeline, to end the BufferedWriter
+	 */
   public void destroy() {
     try {
       bufWriter.close();
