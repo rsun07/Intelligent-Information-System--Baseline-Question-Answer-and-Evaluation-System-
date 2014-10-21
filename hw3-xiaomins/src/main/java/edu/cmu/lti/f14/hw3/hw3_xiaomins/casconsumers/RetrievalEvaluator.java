@@ -53,6 +53,9 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 	 
 	 /** document id and the Docvector, relevance, cosineSimilarity and text **/
 	 private HashMap<Integer, ArrayList<Doc>> docList;
+	 
+	 // Output data document
+	 private String outputFile;
 	
 	// to write the document/result
 	private BufferedWriter bufWriter;
@@ -74,9 +77,9 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 	   * this function will initialize the BufferedReader for write the output
 	   */
 	    private void initBufWriter(){
-	      String output = ((String) getConfigParameterValue("OutputFile")).trim();
+	      outputFile = ((String) getConfigParameterValue("OutputFile")).trim();
 	      try {
-	        bufWriter = new BufferedWriter(new FileWriter(output, false));
+	        bufWriter = new BufferedWriter(new FileWriter(outputFile, false));
 	      } catch (Exception e) {
 	        e.printStackTrace();
 	      }
@@ -169,6 +172,7 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 		  ArrayList<Doc> docs = docList.get(id);
 		  for(Doc curDoc : docs){
 		    double cosSim = computeCosineSimilarity(queryVector, curDoc.getVector());
+//		    double jacc = computeJaccardCoefficient(queryVector, curDoc.getVector());
 		    curDoc.setCosSim(cosSim);
 		  }
       Collections.sort(docs);
@@ -242,6 +246,8 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 	          docMol += docFreq*docFreq;
 	        }
 	        return Math.sqrt(docMol);
+	        //for jaccard_coefficient use only
+//	        return docMol;
 	      }
 	  
 	/**
