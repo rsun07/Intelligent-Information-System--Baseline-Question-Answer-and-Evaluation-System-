@@ -20,7 +20,7 @@ public class DiceCoefficient {
    * @return
    */
   
-  public double computeSimilarity(ArrayList<Vector> queryVector, ArrayList<Vector> docVector) {
+  public static double computeDiceCoefficient(ArrayList<Vector> queryVector, ArrayList<Vector> docVector) {
         
     //calculate the mol for both queries and documents
     // avoid to use math.pow() because it can be too slow

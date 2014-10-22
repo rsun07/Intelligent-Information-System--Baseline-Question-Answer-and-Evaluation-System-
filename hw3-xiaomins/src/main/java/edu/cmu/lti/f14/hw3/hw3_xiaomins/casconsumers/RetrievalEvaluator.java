@@ -173,7 +173,10 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 		  for(Doc curDoc : docs){
 		    double cosSim = computeCosineSimilarity(queryVector, curDoc.getVector());
 //		    double jacc = computeJaccardCoefficient(queryVector, curDoc.getVector());
-		    curDoc.setCosSim(cosSim);
+//		    double dice = DiceCoefficient.computeDiceCoefficient(queryVector, curDoc.getVector());
+		    curDoc.setSimilarity(cosSim);
+//		    curDoc.setSimilarity(jacc);
+//		    curDoc.setSimilarity(dice);
 		  }
       Collections.sort(docs);
       // compute the rank of retrieved sentences
@@ -271,9 +274,9 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 	  Doc answerDoc = docs.get(rank - 1);
 	  int rel = answerDoc.getRelevance();
 	  String text = answerDoc.getText();
-	  double cosSim = answerDoc.getCosSim();
+	  double similarity = answerDoc.getSimilarity();
 	  String output = 
-	          String.format("cosine=%.4f\trank=%d\tqid=%d\trel=%d\t%s%n", cosSim, rank, id, rel, text);
+	          String.format("cosine=%.4f\trank=%d\tqid=%d\trel=%d\t%s%n", similarity, rank, id, rel, text);
     //System.out.println(output);
 	  try {
       bufWriter.write(output);

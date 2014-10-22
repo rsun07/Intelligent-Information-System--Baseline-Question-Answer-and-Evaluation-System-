@@ -6,13 +6,13 @@ import java.util.ArrayList;
 public class Doc implements Comparable<Doc> {
   private ArrayList<Vector> vector;
   private int relevance;
-  private double cosSim;
+  private double similarity;
   private String text;
   
   public Doc() {
     relevance = 0;
     vector = new ArrayList<Vector>();
-    cosSim = 0.0;
+    similarity = 0.0;
     text = "";
   }
   
@@ -20,13 +20,13 @@ public class Doc implements Comparable<Doc> {
     this.relevance = rel;
     this.vector = vector;
     this.text = text;
-    cosSim = 0.0;
+    similarity = 0.0;
   }
 
   public int compareTo(Doc doc) {
-    if (this.cosSim > doc.cosSim)
+    if (this.similarity > doc.similarity)
       return -1;
-    else if (this.cosSim < doc.cosSim)
+    else if (this.similarity < doc.similarity)
       return 1;
     else
       return 0;
@@ -53,15 +53,15 @@ public class Doc implements Comparable<Doc> {
     return text;
   }
   
-  public void setCosSim(double cos){
-    cosSim = cos;
+  public void setSimilarity(double sim){
+    similarity = sim;
   }
-  public double getCosSim(){
-    return cosSim;
+  public double getSimilarity(){
+    return similarity;
   }
   
   public String toString(){
-    return String.format("rel=%d\tcosSim=%.4f\ttext=%s\t%n", relevance, cosSim, text);
+    return String.format("rel=%d\tsimilarity=%.4f\ttext=%s\t%n", relevance, similarity, text);
   }
 }
 

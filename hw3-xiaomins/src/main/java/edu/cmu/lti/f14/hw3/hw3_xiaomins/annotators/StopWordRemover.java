@@ -61,7 +61,7 @@ public class StopWordRemover {
    * Some stupid test.
    */
   public static void main(String args[]) {
-    String origText = "a";
+    String origText = "An American go to the station for a ticket that is important ";
     
     System.out.println(isStopWord(origText));
     System.out.println("==================");
