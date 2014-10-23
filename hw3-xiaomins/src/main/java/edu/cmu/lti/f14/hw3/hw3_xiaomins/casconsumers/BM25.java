@@ -18,7 +18,7 @@ public class BM25 {
    */
   private static final double k1 = 1.2;
   private static final double b = 0.75;
-  private static final double k3 = 0;
+  private static final double k3 = 0.6;
   /**
    * This function will compute the Dice Coefficient between query vector and document vector
    * @param queryVector
