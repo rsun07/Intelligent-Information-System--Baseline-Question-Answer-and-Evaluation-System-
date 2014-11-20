@@ -1,0 +1,88 @@
+qid=1	rel=99	Give us the name of the volcano that destroyed the ancient city of Pompeii
+qid=1	rel=1	In A.D. 79, long-dormant Mount Vesuvius erupted, burying in volcanic ash the Roman city of Pompeii; an  estimated 20,000 people died.
+qid=1	rel=0	You can see Vesuvius in the background, near ruins of Pompei; its last eruption was in 1944.
+qid=1	rel=0	Vesuvius is located near the ruins of the destroyed city of Pompeii.
+qid=1	rel=0	In 79 A.D., this ancient city was buried in an avalanche of hot ash from Mount Vesuvius.
+qid=2	rel=99	What has been the largest crowd to ever come see Michael Jordan
+qid=2	rel=1	When Michael Jordan--one of the greatest basketball player of all time--made what was expected to be his last trip to play in Atlanta last  March, an NBA record 62,046 fans turned out to see him and the  Bulls.
+qid=2	rel=0	A supposedly last play of  Michael Jordan gathered some of the largest crowd in history of NBA.
+qid=2	rel=0	The Immortal World Tour of Michael Jackson gathered some of the largest crowds of fans in the history of pop music.
+qid=2	rel=0	In the Bulls' last visit to Atlanta, an NBA-record 62,046 fans showed up at the Georgia Dome.
+qid=3	rel=99	In which year did a purchase of Alaska happen?
+qid=3	rel=1	Alaska was purchased from Russia in year 1867.
+qid=3	rel=0	1867 - U.S. President Andrew Jackson proclaims treaty for purchase of Alaska from Russia.
+qid=3	rel=0	William Seward negotiated a purchase of Alaska for $7.2 million.
+qid=4	rel=99	What year did Wilt Chamberlain score 100 points?
+qid=4	rel=1	On March 2, 1962, Wilt Chamberlain scored a record 100 points in a   game against the New York Knicks.
+qid=4	rel=0	A 100 point game was a highlight in a career of Wilt Chamberlain
+qid=4	rel=0	Wilt Chamberlain most famous record is the 100 points he scored in the   Philadelphia Warriors' 169-147 defeat of the New York Knicks.
+qid=5	rel=99	What river is called China's Sorrow?
+qid=5	rel=1	People of China have mixed feelings about  River, which they often call "sorrow of China"
+qid=5	rel=0	Yangtze is longest river in Asia in general and in China, in particular.
+qid=5	rel=0	Yellow river is often called the mother of China
+qid=6	rel=99	Who was the first person to run the mile in less than four minutes
+qid=6	rel=1	Roger Bannister was the first to break the four-minute mile barrier.
+qid=6	rel=0	The claim that a 4-minute mile was once thought to be impossible byinformed observers was and is a widely propagated myth created by sportswriters and debunked by Bannister himself in his memoir, The Four Minute Mile (1955).
+qid=6	rel=0	It is hard for humans to run the mile faster than in four minutes
+qid=7	rel=99	What year did Alaska become a state?
+qid=7	rel=1	And that's not even to mention the breathtaking beauty of Alaska that became, in 1959, our 49th state.
+qid=7	rel=0	Aaska is a U.S. state situated in the northwest extremity of the North American continent.
+qid=7	rel=0	Also as it did in 1959, the state of Alaska was struggling with how to pay its bills.
+qid=7	rel=0	On Jan. 3, 1959, Alaska's became the 49th star on Old Glory.
+qid=8	rel=99	When did Mike Tyson bite Holyfield's ear?
+qid=8	rel=1	Fighting for Holyfield's WBA heavyweight title on June 28, 1997, Tyson inexplicably bit his opponent's right ear.
+qid=8	rel=0	Tyson was choked up as he spoke of biting Evander Holyfield's ear.
+qid=8	rel=0	Tyson told the panel he was foggy from repeated head butts by Holyfield in the third round of their June 28, 1997 fight in Las Vegas.
+qid=8	rel=0	Tyson said he was feeling betrayed by "people I would have died for" leading up to the June 1997 title fight against Holyfield, according to the psychiatric report released today by the state attorney general's office.
+qid=9	rel=99	What was the first spaceship on the moon
+qid=9	rel=1	Luna 2 was the first spacecraft to reach the surface of the Moon.
+qid=9	rel=0	And he was down to about  15 seconds of fuel, after dodging boulders on the moon, when the  Eagle landed on July 20, 1969.
+qid=9	rel=0	When the cool-thinking   Armstrong realized that the computer navigation would set Eagle,  the lunar lander, down among dangerous boulders in a gaping crater,  he acted.
+qid=9	rel=0	Eagle was the first manned spacecraft that reached the surface of the moon
+qid=10	rel=99	Who won the Nobel Peace Prize in 1992?
+qid=10	rel=1	Menchu won the Nobel peace prize in 1992.
+qid=10	rel=0	Menchu, a Guatemalan leader internationally known for her work in human rights and a leading Indian activist, was honored with the Nobel Peace Prize.
+qid=10	rel=0	A new book debunks much of Nobel peace prize laureate Ms. Menchu's version of her life in Guatemala.
+qid=10	rel=0	A nobel prize laureate Ms. Menchu became an internationally acclaimed spokeswoman for the rights of indigenous people.
+qid=11	rel=99	Where is Devil's Tower
+qid=11	rel=1	Devils Tower can be found in Crook County
+qid=11	rel=0	To the west, across the Wyoming border, is the staggeringly beautiful Devil's Tower National Monument.
+qid=11	rel=0	Devil's Tower  is an igneous intrusion that rises dramatically 1,267 feet (386 m) above the surrounding terrain.
+qid=11	rel=0	In 1941, Petzoldt joined other rock climbers to rescue a marooned parachutist who had landed atop Devil's Tower
+qid=12	rel=99	What is the height of the tallest redwood?
+qid=12	rel=1	Named the "Mendocino Tree," the 600- to 800-year-old redwood   stands 367 1/2 feet tall.
+qid=12	rel=0	Mendocino Tree is the tallest redwood in the world.
+qid=12	rel=0	"Mendocino Tree" has been officially decreed the tallest living thing by Save the Redwoods League.
+qid=12	rel=0	The tallest tree alive in the world today is a 370-foot-tall redwood whose location biologists declined to disclose.
+qid=13	rel=99	How deep is Crater Lake?
+qid=13	rel=1	Oregon's Crater Lake tops it at 1,932 feet at its greatest depth.
+qid=13	rel=0	Crater Lake is a caldera lake in the western United States.
+qid=13	rel=0	There are no rivers flowing into or out of Crater Lake
+qid=14	rel=99	Who was the lead singer for the Commodores
+qid=14	rel=1	Lionel Richiewas was lead singer and songwriter for Commodores.
+qid=14	rel=0	The Commodores are an American funk/soulband, which was at its peak in the 1970s.
+qid=14	rel=0	The Commodores originally came together from groups the Mystics and the Jays.
+qid=15	rel=99	What is the coldest place on earth?
+qid=15	rel=1	A new look at NASA satellite data revealed that Earth set a new record for coldest temperature recorded in East Antarctica.
+qid=15	rel=0	Oymyakon is the coldest place in Russia.
+qid=15	rel=0	Prospect Creek Camp in Alaska is the coldest place in US.
+qid=16	rel=99	When did Bob Marley die
+qid=16	rel=1	Bob Marley died in 1981 from cancer at age 36.
+qid=16	rel=0	Without proper and timely removal of tumor one can die like Bob Marley or Steve Jobs.
+qid=16	rel=0	Bob Marley was a Jamaican reggae singer-songwriter, musician, and guitarist who did achieve international fame.
+qid=17	rel=99	Which U.S. state is the leading corn producer?
+qid=17	rel=1	Corn futures found support from forecasts for above-normal   temperatures in major growing areas, including Iowa, which often is  the nation's largest producer.
+qid=17	rel=0	The United States is the world's leading producer of corn
+qid=17	rel=0	The U.S. state leading in production of corn received $600  million in annual tax subsidies to boost production of ethanol.
+qid=18	rel=99	Where was the first McDonald's built?
+qid=18	rel=1	From a single hamburger stand in San Bernardino, Calif., in 1948, the systematized approach that the McDonald brothers developed to offer customers reasonably priced food at a rapid pace formed the cornerstone of the fast-food business.
+qid=18	rel=0	McDonald's Corporation is the world's largest chain of hamburger fast food restaurants.
+qid=18	rel=0	The company began in 1940 as a barbecue restaurant operated by Richard and Maurice McDonald.
+qid=19	rel=99	The Hindenburg disaster took place in 1937 in which New Jersey town?
+qid=19	rel=1	On May 6, 1937, the hydrogen-filled German dirigible Hindenburg   burned and crashed in Lakehurst, N.J., killing 35 of the 97 people  on board and a Navy crewman on the ground.
+qid=19	rel=0	The Hindenburg disaster took place as the German passenger airship LZ 129 Hindenburg caught fire and was destroyed during its attempt to dock with its mooring mast
+qid=19	rel=0	Hindenburg-class airships were passenger carrying rigid airships all of which were retired shortly after a disaster in 1937
+qid=20	rel=99	What is the Keystone State?
+qid=20	rel=1	They call it the Keystone State, and in this unpredictable election year, Pennsylvania is living up to its name.
+qid=20	rel=0	Keystone Resort is the largest ski resort in Summit County located in Keystone Colorado.
+qid=20	rel=0	The Keytstone Resort is owned and operated by Vail Resort.
