@@ -6,7 +6,7 @@
   <vendor/>
   <types>
     <typeDescription>
-      <name>edu.cmu.lti.f14.hw2.Intelligent_Information_System__Baseline_Question_Answer_and_Evaluation_System_.typesystems.Document</name>
+      <name>edu.cmu.lti.f14.hw3.hw3_xiaomins.typesystems.Document</name>
       <description/>
       <supertypeName>uima.tcas.Annotation</supertypeName>
       <features>
@@ -34,7 +34,7 @@
       </features>
     </typeDescription>
     <typeDescription>
-      <name>edu.cmu.lti.f14.hw2.Intelligent_Information_System__Baseline_Question_Answer_and_Evaluation_System_.typesystems.Token</name>
+      <name>edu.cmu.lti.f14.hw3.hw3_xiaomins.typesystems.Token</name>
       <description/>
       <supertypeName>uima.tcas.Annotation</supertypeName>
       <features>
