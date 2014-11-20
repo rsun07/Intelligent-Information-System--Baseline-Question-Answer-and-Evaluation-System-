@@ -1,4 +1,4 @@
-package edu.cmu.lti.Intelligent_Information_System__Baseline_Question_Answer_and_Evaluation_System_.casconsumers;
+package edu.cmu.lti.Intelligent_Information_System__Baseline_Question_Answer_and_Evaluation_System_.annotators;
 
 import java.util.ArrayList;
 import java.util.HashMap;
